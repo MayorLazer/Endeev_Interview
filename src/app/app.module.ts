@@ -14,6 +14,8 @@ import { ListEventsComponent } from './menu/list-events/list-events.component';
 import { CalendarComponent } from './menu/calendar/calendar.component';
 import { LoginComponent } from './login/login.component';
 import { MenuComponent } from './menu/menu.component';
+// Import to Get Routing Up&Running
+import { routing } from './app.routing';
 
 // My Models
 import { Evento } from './models/event.model';
@@ -38,7 +40,9 @@ import { EventsService } from './services/events/events.service';
     AlertModule.forRoot(),
     AccordionModule.forRoot(),
     ButtonsModule.forRoot(),
-    BsDropdownModule.forRoot()
+    BsDropdownModule.forRoot(),
+    // Import to Get Routing Up&Running
+    routing
   ],
   // Add Export Class Name of Each Service So its instance GLOBALLY SINGLETON
   providers: [ HumansService, EventsService],

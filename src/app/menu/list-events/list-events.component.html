@@ -3,12 +3,15 @@
     <accordion>
       <accordion-group #group>
         <div accordion-heading>
-          {{event.name}} | Time -> {{event.date_begin.getHours()}}:{{event.date_begin.getMinutes()}} |
-          Date -> {{event.date_begin.getDate()}}/{{event.date_begin.getMonth()}}
+          <!-- Oh boi dem pipes do work <3 -->
+          <h5>{{event.name}} / When? -> {{event.date_begin | date:'longDate'}}</h5>
           <i class="pull-right float-xs-right glyphicon"
           [ngClass]="{'glyphicon-chevron-down': group?.isOpen, 'glyphicon-chevron-right': !group?.isOpen}"></i>
         </div>
-        Description -> {{event.description}}
+        <div>
+            Hour -> {{event.date_begin | date:'shortTime'}}
+            Description -> {{event.description}}
+        </div>
         <br/>
         <div class="btn-group">
           <label class="btn btn-primary">Editar</label>
