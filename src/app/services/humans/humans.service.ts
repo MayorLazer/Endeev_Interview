@@ -41,7 +41,7 @@ export class HumansService {
         }
     ];
   }
-  // Self expleinatory methods
+  // Kinda Insecure dont you think?
   getHumans (): Human[] {
     return this.humans;
   }
@@ -50,6 +50,15 @@ export class HumansService {
     return true;
     }return false;
   }
+  // This return the human...
+  getProfile(email: string, pswrd: string): Human {
+    for (const user of this.humans) {
+      if ( user.email === email && user.pswrd === pswrd) {
+        return user;
+      }
+    } return null;
+  }
+  // Push human to the array
   addHuman (add_human: Human): number {
     if ( this.humans.indexOf(add_human) !== -1 ) {
       return this.humans.push(add_human);
@@ -58,11 +67,13 @@ export class HumansService {
   getHuman(search_human: Human): Human {
     return this.humans[this.humans.indexOf(search_human)];
   }
+  // Delete the human
   removeHuman(remove_human: Human) {
     if ( this.humans.indexOf(remove_human) !== -1 ) {
       return this.humans.splice(this.humans.indexOf(remove_human));
     }
   }
+  // This function as an auth...
   auth(email: string, pswrd: string): boolean {
     for (const user of this.humans) {
       if ( user.email === email && user.pswrd === pswrd) {

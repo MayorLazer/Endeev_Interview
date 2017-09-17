@@ -13,7 +13,7 @@ export class ListEventsComponent implements OnInit {
   // Storage interly event array on list human
   events: Evento[] = [];
 
-  constructor(private listeventserviece: EventsService) {
+  constructor( private listeventserviece: EventsService ) {
     // This line is to ensure that listhuman get its values
     this.events = this.listeventserviece.getEvents();
   }

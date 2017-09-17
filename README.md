@@ -1,3 +1,14 @@
+#Author Note
+Well, This is all I could code in 2 days straight of angular learning (I've no previous contact with angular frameworks nither typescript, this fancy IDE, or ANY other javascript framework). Heck I bearly knew there basics of html/css/javscript). 
+
+I'm amaze of how much I acomplish in these days, Wish I could've more time to polish concepts and code. I must say this project light a spark on me. I do love front-end <3
+
+Could implement:
+    - Several Components
+    - 2 Services 
+    - Routing
+    - Models  
+
 # Endeev
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.4.2.
