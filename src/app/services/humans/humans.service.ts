@@ -13,25 +13,32 @@ export class HumansService {
       this.humans = [
         {
           id: 0,
-          name: 'Green Friday',
+          name: 'Mati',
           last_name: 'Mati',
           email: 'algunemai@ga.com',
-          pswrd: 'algunapas'
+          pswrd: 'mati'
         },
         {
-          id: 0,
-          name: 'Green Friday',
-          last_name: 'Mati',
+          id: 1,
+          name: 'Diego',
+          last_name: 'Diego',
           email: 'algunemai@ga.com',
-          pswrd: 'algunapas'
+          pswrd: 'diego'
         },
         {
-          id: 0,
-          name: 'Green Friday',
-          last_name: 'Mati',
+          id: 2,
+          name: 'Ale',
+          last_name: 'Ale',
           email: 'algunemai@ga.com',
-          pswrd: 'algunapas'
-      }
+          pswrd: 'ale'
+        },
+        {
+          id: 3,
+          name: 'a',
+          last_name: 'a',
+          email: 'a',
+          pswrd: 'a'
+        }
     ];
   }
   // Self expleinatory methods
@@ -55,5 +62,12 @@ export class HumansService {
     if ( this.humans.indexOf(remove_human) !== -1 ) {
       return this.humans.splice(this.humans.indexOf(remove_human));
     }
+  }
+  auth(email: string, pswrd: string): boolean {
+    for (const user of this.humans) {
+      if ( user.email === email && user.pswrd === pswrd) {
+        return true;
+      }
+    } return false;
   }
 }

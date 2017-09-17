@@ -1,7 +1,10 @@
-form {
+.main {
     background-color:#85D9BF;
     color: white;
 }
 .container {
     padding: 2em;
+}
+.imgcontainer {
+    background-image: url('https://media.licdn.com/media/AAEAAQAAAAAAAAhCAAAAJDVkYjU3OWM0LTZlODktNDljZC1hNWI5LThmYjEyYzNkNTE5NA.png');
 }
