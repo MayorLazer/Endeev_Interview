@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 
-// So it can know what event is
+// So it can know what evento is
 import { Evento } from '../../models/event.model';
 
 @Injectable()
 export class EventsService {
- // events will store the Event array
- private events: Evento[];
+  // events will store the Event array
+  private events: Evento[];
+
   constructor() {
       this.events = [
         {
@@ -23,7 +24,7 @@ export class EventsService {
           author: 'Ale',
           date_begin: new Date(2015, 12, 10, 4, 10),
           date_end: new Date(2015, 12, 10, 5, 10),
-          description: 'El green friday ;)'
+          description: 'El doggo day :3'
         },
         {
           id: 2,
@@ -31,22 +32,30 @@ export class EventsService {
           author: 'Diego',
           date_begin: new Date(2015, 12, 10, 4, 10),
           date_end: new Date(2015, 12, 10, 5, 10),
-          description: 'El green friday ;)'
+          description: 'The english class'
       }
     ];
   }
   // Self expleinatory methods
-  getEvents() {
+  getEvents (): Evento[] {
     return this.events;
   }
-  addEvents(add_event: Evento) {
+  isEvento(is_event: Evento): boolean {
+    if ( this.events.indexOf(is_event) !== -1 ) {
+    return true;
+    }return false;
+  }
+  addEvento (add_event: Evento): number {
     if ( this.events.indexOf(add_event) !== -1 ) {
-      return;
+      return this.events.push(add_event);
     }
-    this.events.push(add_event);
   }
-  removeEvent(erase_event: Evento) {
-    return this.events.splice(this.events.indexOf(erase_event));
+  getEvento(search_event: Evento): Evento {
+    return this.events[this.events.indexOf(search_event)];
   }
-
+  removeEvento(remove_event: Evento) {
+    if ( this.events.indexOf(remove_event) !== -1 ) {
+      return this.events.splice(this.events.indexOf(remove_event));
+    }
+  }
 }
