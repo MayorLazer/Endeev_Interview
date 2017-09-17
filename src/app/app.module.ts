@@ -9,10 +9,11 @@ import { BsDropdownModule } from 'ngx-bootstrap';
 
 // My Components
 import { AppComponent } from './app.component';
-import { ProfileComponent } from './profile/profile.component';
-import { ListEventsComponent } from './list-events/list-events.component';
-import { CalendarComponent } from './calendar/calendar.component';
+import { ProfileComponent } from './menu/profile/profile.component';
+import { ListEventsComponent } from './menu/list-events/list-events.component';
+import { CalendarComponent } from './menu/calendar/calendar.component';
 import { LoginComponent } from './login/login.component';
+import { MenuComponent } from './menu/menu.component';
 
 // My Models
 import { Evento } from './models/event.model';
@@ -28,7 +29,8 @@ import { EventsService } from './services/events/events.service';
     ProfileComponent,
     ListEventsComponent,
     CalendarComponent,
-    LoginComponent
+    LoginComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,
