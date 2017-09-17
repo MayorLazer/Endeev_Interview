@@ -1,3 +1,17 @@
-<p>
-  list-events works!
-</p>
+<div class="center-block">
+  <ul>
+    <li *ngFor="let event of events">
+      <accordion>
+        <accordion-group #group>
+          <div accordion-heading>
+            {{event.name}} | Time -> {{event.date_begin.getHours()}}:{{event.date_begin.getMinutes()}} |
+            Date -> {{event.date_begin.getDate()}}/{{event.date_begin.getMonth()}}
+            <i class="pull-right float-xs-right glyphicon"
+            [ngClass]="{'glyphicon-chevron-down': group?.isOpen, 'glyphicon-chevron-right': !group?.isOpen}"></i>
+          </div>
+          Description -> {{event.description}}
+        </accordion-group>
+      </accordion>
+    </li>
+  </ul>
+</div>

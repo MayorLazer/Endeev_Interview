@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgModule } from '@angular/core';
+
+// Standarts Input for Service of Events
+import { Evento } from '../../models/event.model';
+import { EventsService } from '../../services/events/events.service';
 
 @Component({
   selector: 'app-list-events',
@@ -6,8 +10,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./list-events.component.css']
 })
 export class ListEventsComponent implements OnInit {
+  // Storage interly event array on list human
+  events: Evento[] = [];
 
-  constructor() { }
+  constructor(private listeventserviece: EventsService) {
+    // This line is to ensure that listhuman get its values
+    this.events = this.listeventserviece.getEvents();
+  }
 
   ngOnInit() {
   }
