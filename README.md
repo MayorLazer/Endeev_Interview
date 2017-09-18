@@ -7,7 +7,8 @@ Could implement:
     - Several Components
     - 2 Services 
     - Routing
-    - Models  
+    - Models
+    - Pipes  
 
 # Endeev
 

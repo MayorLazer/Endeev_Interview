@@ -13,12 +13,12 @@ export class ProfileComponent implements OnInit {
   // Storage interly the human's profile data
   profile: Human;
 
-  constructor(private humansserviece: HumansService, email: string, pass: string) {
+ /* constructor(private humansserviece: HumansService, email: string, pass: string) {
     // This line is to ensure that listhuman get its values
     if ( this.humansserviece.auth( email, pass )) {
       this.profile = this.humansserviece.getProfile( email, pass );
     }
-  }
+  } Dont know how to pass info from login to here */
 
   ngOnInit() {
   }
