@@ -6,7 +6,8 @@
           <!-- Oh boi dem pipes do work <3 -->
           <h5>{{event.name}} / When? -> {{event.date_begin | date:'longDate'}}</h5>
           <i class="pull-right float-xs-right glyphicon"
-          [ngClass]="{'glyphicon-chevron-down': group?.isOpen, 'glyphicon-chevron-right': !group?.isOpen}"></i>
+                    [ngClass]="{'glyphicon-chevron-down': group?.isOpen, 'glyphicon-chevron-right': !group?.isOpen}">
+          </i>
         </div>
         <div>
             Hour -> {{event.date_begin | date:'shortTime'}}
@@ -21,4 +22,3 @@
     </accordion>
   </li>
 </ul>
-
