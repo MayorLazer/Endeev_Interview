@@ -8,7 +8,6 @@ export class HumansService {
   // humans will store in the Human array
   private humans: Human[];
 
-  // Figure out how to read json
   constructor() {
       this.humans = [
         {

@@ -6,15 +6,15 @@
 
   <div class="container">
     <div class="form-group">
-      <label for="usr">Name:</label>
+      <label for="usr">Email:</label>
       <input type="text" class="form-control" id="usr">
     </div>
     <div class="form-group">
       <label for="pwd">Password:</label>
       <input type="password" class="form-control" id="pwd">
     </div>
-
-    <button type="submit" class=" btn btn-info">Login</button>
+    <!-- This should bind Email and Password and send to log method  -->
+    <button type="submit" class=" btn btn-info" (click)="log(usr, pwd)">Login</button>
     <button type="button" class="btn btn-cancel">Cancel</button>
     <!-- Ilegalityyy kind testing routing -->
     <a [routerLink]="['/menu']"><button type="submit" class=" btn btn-success">Hackerman3000</button></a>

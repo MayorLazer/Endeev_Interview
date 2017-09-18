@@ -12,15 +12,16 @@ import { HumansService } from '../../services/humans/humans.service';
 export class ProfileComponent implements OnInit {
   // Storage interly the human's profile data
   profile: Human;
+  humans: Human[];
 
- /* constructor(private humansserviece: HumansService, email: string, pass: string) {
+constructor(private humansserviece: HumansService) {
     // This line is to ensure that listhuman get its values
-    if ( this.humansserviece.auth( email, pass )) {
-      this.profile = this.humansserviece.getProfile( email, pass );
-    }
-  } Dont know how to pass info from login to here */
+    this.humans = this.humansserviece.getHumans( );
+}
 
-  ngOnInit() {
+    ngOnInit() {
+      for (const i of this.humans ) { console.log( i.name ); }
   }
 
 }
+// Binding sesion with profile?
