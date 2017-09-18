@@ -33,6 +33,14 @@ export class EventsService {
           date_begin: new Date(2015, 12, 10, 4, 10),
           date_end: new Date(2015, 12, 10, 5, 10),
           description: 'The english class'
+        },
+        {
+          id: 3,
+          name: 'Dog Day',
+          author: 'Seba',
+          date_begin: new Date(2017, 12, 10, 4, 10),
+          date_end: new Date(2017, 12, 10, 5, 10),
+          description: 'Doggerino'
       }
     ];
   }

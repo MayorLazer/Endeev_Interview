@@ -13,6 +13,8 @@ Could implement:
     - Dependency injection
     - Some Directive  
 
+My biggest issue the login... Couldn't figure out how to store the user data in the login so it could call erase metod, display profile, etc... 
+
 # Endeev
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.4.2.

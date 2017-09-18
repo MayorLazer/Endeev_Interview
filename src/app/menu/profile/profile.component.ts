@@ -20,7 +20,7 @@ constructor(private humansserviece: HumansService) {
 }
 
     ngOnInit() {
-      for (const i of this.humans ) { console.log( i.name ); }
+      this.profile = this.humans[0];
   }
 
 }

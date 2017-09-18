@@ -21,4 +21,8 @@ export class ListEventsComponent implements OnInit {
   ngOnInit() {
   }
 
+  removeEvent( remove_event: Evento) {
+    this.listeventserviece.removeEvento( remove_event);
+  }
+
 }

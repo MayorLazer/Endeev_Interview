@@ -12,10 +12,10 @@ export class HumansService {
       this.humans = [
         {
           id: 0,
-          name: 'Mati',
-          last_name: 'Mati',
-          email: 'algunemai@ga.com',
-          pswrd: 'mati'
+          name: 'Doge',
+          last_name: 'Doggo',
+          email: 'getmailed@gad.com',
+          pswrd: 'mUcH5eCur1tY'
         },
         {
           id: 1,
