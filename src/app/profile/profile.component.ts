@@ -1,13 +1,14 @@
 import { Component, OnInit, NgModule } from '@angular/core';
 
 // Standarts Input for Service of Humans
-import { Human } from '../../models/human.model';
-import { HumansService } from '../../services/humans/humans.service';
+import { Human } from '../models/human.model';
+import { HumansService } from '../services/humans/humans.service';
+
 
 @Component({
   selector: 'app-profile',
-  templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.css']
+  templateUrl: 'profile.component.html',
+  styleUrls: ['profile.component.css']
 })
 export class ProfileComponent implements OnInit {
   // Storage interly the human's profile data

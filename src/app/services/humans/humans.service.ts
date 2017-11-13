@@ -69,7 +69,7 @@ export class HumansService {
   // Delete the human
   removeHuman(remove_human: Human) {
     if ( this.humans.indexOf(remove_human) !== -1 ) {
-      return this.humans.splice(this.humans.indexOf(remove_human));
+      return this.humans.splice(this.humans.indexOf(remove_human),1);
     }
   }
   // This function as an auth...

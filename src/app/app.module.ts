@@ -1,51 +1,35 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
-// Import Bootstrap css Modlues
-import { AlertModule } from 'ngx-bootstrap';
-import { AccordionModule } from 'ngx-bootstrap';
-import { ButtonsModule } from 'ngx-bootstrap';
-import { BsDropdownModule } from 'ngx-bootstrap';
+import { RouterModule } from '@angular/router';
 
 // My Components
 import { AppComponent } from './app.component';
-import { ProfileComponent } from './menu/profile/profile.component';
-import { ListEventsComponent } from './menu/list-events/list-events.component';
-import { CalendarComponent } from './menu/calendar/calendar.component';
 import { LoginComponent } from './login/login.component';
-import { MenuComponent } from './menu/menu.component';
+
+// My Module
+import { ProfileModule } from './profile/profile.module';
+import { HomeModule } from './home/home.module';
+
+
 // Import to Get Routing Up&Running
-import { routing } from './app.routing';
-
-// My Models
-import { Evento } from './models/event.model';
-import { Human } from './models/human.model';
-
-// My Services
-import { HumansService } from './services/humans/humans.service';
-import { EventsService } from './services/events/events.service';
+import { AppRouting } from './app.routing';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ProfileComponent,
-    ListEventsComponent,
-    CalendarComponent,
     LoginComponent,
-    MenuComponent
   ],
   imports: [
     BrowserModule,
-    // Import for Boostrap css modules
-    AlertModule.forRoot(),
-    AccordionModule.forRoot(),
-    ButtonsModule.forRoot(),
-    BsDropdownModule.forRoot(),
     // Import to Get Routing Up&Running
-    routing
+    RouterModule.forRoot( AppRouting ),
+    ProfileModule,
+    HomeModule,
+
   ],
-  // Add Export Class Name of Each Service So its instance GLOBALLY SINGLETON
-  providers: [ HumansService, EventsService],
+  providers: [
+  ],
 
   bootstrap: [AppComponent]
 })

@@ -1,0 +1,39 @@
+<!--
+<ul>
+  <li *ngFor="let event of events">
+    <accordion>
+      <accordion-group #group>
+        <div accordion-heading>
+          &lt;!&ndash; Oh boi dem pipes do work <3 &ndash;&gt;
+          <h5>{{event.name}} / When? -> {{event.date_begin | date:'longDate'}}</h5>
+          <i class="pull-right float-xs-right glyphicon"
+                    [ngClass]="{'glyphicon-chevron-down': group?.isOpen, 'glyphicon-chevron-right': !group?.isOpen}">
+          </i>
+        </div>
+        <div>
+            Hour -> {{event.date_begin | date:'shortTime'}}
+            Description -> {{event.description}}
+        </div>
+        <br/>
+        <div class="btn-group">
+          <label class="btn btn-primary">Editar</label>
+          <label class="btn btn-danger" (click)="removeEvent(event)">Eliminar</label>
+        </div>
+      </accordion-group>
+    </accordion>
+  </li>
+</ul>
+-->
+
+<div class="row card-group main-content">
+  <div *ngFor="let event of events" class="card col-lg-4 col-md-6 col-xs-12 shrink">
+    <img class="card-img-top" src="http://via.placeholder.com/350x150" alt="Card image cap">
+    <div class="card-block">
+      <h4 class="card-title">{{ event.name }}</h4>
+      <p class="card-text"> {{ event.date_begin | date:'longDate' }} </p>
+      <p> >  {{ event.description }}  </p>
+      <p> -{{ event.author }} </p>
+      <label class="btn btn-danger" (click)="removeEvent(event)" > Eliminar  </label>
+    </div>
+  </div>
+</div>

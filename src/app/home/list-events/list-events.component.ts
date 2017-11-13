@@ -6,12 +6,13 @@ import { EventsService } from '../../services/events/events.service';
 
 @Component({
   selector: 'app-list-events',
-  templateUrl: './list-events.component.html',
-  styleUrls: ['./list-events.component.css']
+  templateUrl: 'list-events.component.html',
+  styleUrls: ['list-events.component.css']
 })
 export class ListEventsComponent implements OnInit {
   // Storage interly event array on list event
   events: Evento[];
+  deleteevent: Evento;
 
   constructor( private listeventserviece: EventsService ) {
     // This line is to ensure that event get its values
@@ -22,7 +23,8 @@ export class ListEventsComponent implements OnInit {
   }
 
   removeEvent( remove_event: Evento) {
-    this.listeventserviece.removeEvento( remove_event);
+    console.log('event to remove', remove_event);
+    this.listeventserviece.removeEvento( remove_event );
   }
 
 }
