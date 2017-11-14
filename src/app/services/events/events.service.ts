@@ -14,13 +14,13 @@ export class EventsService {
           id: 0,
           name: 'Green Friday',
           author: 'Mati',
-          date_begin: new Date(2015, 12, 10, 4, 10),
-          date_end: new Date(2015, 12, 10, 5, 10),
+          date_begin: new Date(2015, 12, 10, 4, 10, 0, 0),
+          date_end: new Date(2015, 12, 10, 5, 10,0,0),
           description: 'El green friday ;)'
         },
         {
           id: 1,
-          name: 'Dogs Day',
+          name: 'Dog Day',
           author: 'Ale',
           date_begin: new Date(2015, 12, 10, 4, 10),
           date_end: new Date(2015, 12, 10, 5, 10),
@@ -43,7 +43,7 @@ export class EventsService {
           description: 'Doggerino'
       },
         {
-          id: 3,
+          id: 4,
           name: 'Dog Day',
           author: 'Seba',
           date_begin: new Date(2017, 12, 10, 4, 10),
@@ -51,8 +51,8 @@ export class EventsService {
           description: 'Doggerino'
         },
         {
-          id: 3,
-          name: 'Dog Day',
+          id: 5,
+          name: 'Daily',
           author: 'Seba',
           date_begin: new Date(2017, 12, 10, 4, 10),
           date_end: new Date(2017, 12, 10, 5, 10),
@@ -69,11 +69,6 @@ export class EventsService {
     return true;
     }return false;
   }
-  addEvento (add_event: Evento): number {
-    if ( this.events.indexOf(add_event) !== -1 ) {
-      return this.events.push(add_event);
-    }
-  }
   getEvento(search_event: Evento): Evento {
     return this.events[this.events.indexOf(search_event)];
   }
@@ -82,9 +77,21 @@ export class EventsService {
       return this.events.splice(this.events.indexOf(remove_event),1);
     }
   }
-  editEvento(event: Evento, edited_event: Evento) {
+  editEvento ( edited_event: Evento) {
+
+    let events = this.events.filter(
+      event => event.id === edited_event.id);
+
+    let event = events[0];
+
     if (this.events.indexOf(event) !== -1) {
-      return this.events[this.events.indexOf(event)] = edited_event;
+     return this.events[this.events.indexOf(event)] = edited_event;
+     }
+  }
+  addEvento ( add_event: Evento ): number {
+    if ( this.events.indexOf(add_event) == -1 ) {
+      add_event.id = this.events.length + 1;
+      return this.events.push(add_event);
     }
   }
 }
