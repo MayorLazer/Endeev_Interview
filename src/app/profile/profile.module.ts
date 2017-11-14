@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { ProfileComponent } from './profile.component'
 import { RouterModule } from '@angular/router';
 
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+
 // My Models
 import { Evento } from '../models/event.model';
 import { Human } from '../models/human.model';
@@ -19,11 +21,11 @@ import { ProfileRouting } from './profilerouting';
   imports: [
     CommonModule,
     RouterModule.forChild( ProfileRouting ),
-    NavbarModule
+    NavbarModule,
+    NgbModule.forRoot()
   ],
   declarations: [
     ProfileComponent,
-
   ],
   providers: [
     HumansService,

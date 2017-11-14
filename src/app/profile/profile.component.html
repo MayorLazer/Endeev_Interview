@@ -1,6 +1,6 @@
 
 <app-navbar></app-navbar>
-<div id="User" class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+<div id="User" class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 profile">
   <div class="card hovercard">
     <div class="cardheader" style="background-image: url('http://www.airedesantafe.com.ar/wp-content/uploads/2016/08/P1020046.jpg');"></div>
     <div class="avatar">
@@ -15,3 +15,21 @@
     </div>
   </div>
 </div>
+
+
+<template #content let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title">Modal title</h4>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <p>One fine body&hellip;</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" (click)="c('Close click')">Close</button>
+  </div>
+</template>
+
+<button class="btn btn-lg btn-outline-primary" (click)="open(content)">Launch demo modal</button>
