@@ -82,4 +82,9 @@ export class EventsService {
       return this.events.splice(this.events.indexOf(remove_event),1);
     }
   }
+  editEvento(event: Evento, edited_event: Evento) {
+    if (this.events.indexOf(event) !== -1) {
+      return this.events[this.events.indexOf(event)] = edited_event;
+    }
+  }
 }

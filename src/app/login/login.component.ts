@@ -9,6 +9,9 @@ import { Human } from '../models/human.model';
 })
 export class LoginComponent implements OnInit {
 
+  email: string;
+  pswrd: string;
+
   constructor( private humansservice: HumansService) {
 
   }

@@ -1,4 +1,4 @@
-import { Component, OnInit, NgModule } from '@angular/core';
+import { Component, OnInit, NgModule, ViewChild, ElementRef } from '@angular/core';
 
 // Standarts Input for Service of Events
 import { Evento } from '../../models/event.model';
@@ -26,5 +26,10 @@ export class ListEventsComponent implements OnInit {
     console.log('event to remove', remove_event);
     this.listeventserviece.removeEvento( remove_event );
   }
+
+  editEvent ( event: Evento , edited_event: Evento ) {
+    this.listeventserviece.editEvento ( event, edited_event );
+  }
+
 
 }

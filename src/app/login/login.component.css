@@ -1,11 +1,14 @@
 .main {
     background-color:#85D9BF;
     color: white;
-    height: 30rem;
-}
-.container {
-    padding: 2em;
 }
 .imgcontainer {
     background-image: url('https://media.licdn.com/media/AAEAAQAAAAAAAAhCAAAAJDVkYjU3OWM0LTZlODktNDljZC1hNWI5LThmYjEyYzNkNTE5NA.png');
+}
+a {
+  text-decoration: none;
+}
+
+.margen {
+  margin-bottom: 10px;
 }

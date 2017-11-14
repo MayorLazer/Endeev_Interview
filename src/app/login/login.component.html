@@ -1,25 +1,19 @@
-<div class="main">
-  <h1>Log in</h1>
-  <div class="imgcontainer">
-
-  </div>
-
-  <div class="container">
-    <div class="form-group">
-      <label for="usr">Email:</label>
-      <input type="text" class="form-control" id="usr">
+<div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h1 class="text-center">Welcome to Endeev!</h1>
     </div>
-    <div class="form-group">
-      <label for="pwd">Password:</label>
-      <input type="password" class="form-control" id="pwd">
-    </div>
-    <!-- This should bind Email and Password and send to log method  -->
-    <button type="submit" class=" btn btn-info" (click)="log(usr, pwd)">Login</button>
-    <button type="button" class="btn btn-cancel">Cancel</button>
-    <!-- Ilegalityyy kind testing routing -->
-    <a [routerLink]="['/home']"><button type="submit" class=" btn btn-success">Hackerman3000</button></a>
-    <input type="checkbox" checked="checked"> Remember me?<br/>
-    <span class="psw">Forgot <a href="#">password?</a></span>
+    <div class="modal-body">
+      <div class="form-group">
+        <input [(ngModel)]="email" type="text" class="form-control input-lg" placeholder="Username"/>
+      </div>
 
+      <div class="form-group">
+        <input [(ngModel)]="pswrd" type="password" class="form-control input-lg" placeholder="Password"/>
+      </div>
+      <button type="button" class="btn btn-primary btn-block margen" value="Login" (click)="log(email, pswrd)">Log in</button>
+      <a [routerLink]="['/home']"><button type="button" class="btn btn-success btn-large btn-block"  value="Hacker">Hackerman!</button></a>
+      <span class="pull-left btn btn-default"><a href="#">Register</a> <a href="#" btn btn-default> Forgot Password</a></span>
+    </div>
   </div>
 </div>

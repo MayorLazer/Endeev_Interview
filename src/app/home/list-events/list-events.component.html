@@ -1,30 +1,3 @@
-<!--
-<ul>
-  <li *ngFor="let event of events">
-    <accordion>
-      <accordion-group #group>
-        <div accordion-heading>
-          &lt;!&ndash; Oh boi dem pipes do work <3 &ndash;&gt;
-          <h5>{{event.name}} / When? -> {{event.date_begin | date:'longDate'}}</h5>
-          <i class="pull-right float-xs-right glyphicon"
-                    [ngClass]="{'glyphicon-chevron-down': group?.isOpen, 'glyphicon-chevron-right': !group?.isOpen}">
-          </i>
-        </div>
-        <div>
-            Hour -> {{event.date_begin | date:'shortTime'}}
-            Description -> {{event.description}}
-        </div>
-        <br/>
-        <div class="btn-group">
-          <label class="btn btn-primary">Editar</label>
-          <label class="btn btn-danger" (click)="removeEvent(event)">Eliminar</label>
-        </div>
-      </accordion-group>
-    </accordion>
-  </li>
-</ul>
--->
-
 <div class="row card-group main-content">
   <div *ngFor="let event of events" class="card col-lg-4 col-md-6 col-xs-12 shrink">
     <img class="card-img-top" src="http://via.placeholder.com/350x150" alt="Card image cap">
@@ -33,7 +6,34 @@
       <p class="card-text"> {{ event.date_begin | date:'longDate' }} </p>
       <p> >  {{ event.description }}  </p>
       <p> -{{ event.author }} </p>
-      <label class="btn btn-danger" (click)="removeEvent(event)" > Eliminar  </label>
+      <div class="container">
+        <label class="btn btn-danger" (click)="removeEvent(event)" > Eliminar  </label>
+        <label class="btn btn-primary" (click)="editEvent(event)" > Editar  </label>
+      </div>
     </div>
   </div>
 </div>
+
+<form class="container">
+  <div class="form-group">
+    <label for="nameEvent">Pick your event:</label>
+    <select class="form-control" id="nameEvent">
+      <option>Metting Room</option>
+      <option>Doggo Day</option>
+      <option>Green Friday</option>
+      <option>Daily</option>
+      <option>Streching Session</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="eventowner">Event Host {{ event.name }}</label>
+    <input type="name" class="form-control" id="eventowner" aria-describedby="nameHelp" placeholder="Your name fine sir/madame?">
+  </div>
+  <div class="form-group row container">
+    <label for="example-datetime-local-input" class="col-2 col-form-label">Date and time</label>
+    <div class="col-10">
+      <input class="form-control" type="datetime-local" value="2011-08-19T13:45:00" id="example-datetime-local-input">
+    </div>
+  </div>
+</form>
+

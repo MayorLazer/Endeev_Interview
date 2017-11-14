@@ -9,7 +9,7 @@ import { LoginComponent } from './login/login.component';
 // My Module
 import { ProfileModule } from './profile/profile.module';
 import { HomeModule } from './home/home.module';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 // Import to Get Routing Up&Running
 import { AppRouting } from './app.routing';
@@ -26,6 +26,7 @@ import { NavbarComponent } from './navbar/navbar.component';
     RouterModule.forRoot( AppRouting ),
     ProfileModule,
     HomeModule,
+    FormsModule
 
   ],
   providers: [
