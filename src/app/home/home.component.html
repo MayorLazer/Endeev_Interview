@@ -1,5 +1,6 @@
 <div class="row">
-  <div class="col-12"><app-navbar></app-navbar></div>
+  <div class="col-12"><app-navbar [search]="searchHome" (searchChanged)="processEvent($event)"></app-navbar></div>
   <div class="col-12"><app-calendar></app-calendar></div>
-  <div class="col-12"><app-list-events></app-list-events></div>
+  <div class="col-12"><app-list-events [search]="searchHome" (refreshSearch)="processEvent($event)" ></app-list-events></div>
+
 </div>

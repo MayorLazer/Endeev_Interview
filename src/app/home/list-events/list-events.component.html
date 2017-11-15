@@ -1,10 +1,12 @@
-<div class="container">
+<!-- Botonera -->
+<div class="main-content">
   <button class="add btn btn-success" type="submit" (click)="open(content, null)"> Add Event </button>
   <button class="add btn btn-info" type="submit" (click)="orderList()"> Sort Events </button>
 </div>
 
+<!-- Eventos -->
 <div class="row card-group main-content">
-  <div *ngFor="let event of events" class="card col-3 shrink">
+  <div *ngFor="let event of events | searchfilter: 'name' : search " class="card col-3 shrink">
     <img class="card-img-top" src="http://via.placeholder.com/350x150" alt="Card image cap">
     <div class="card-block">
       <h4 class="card-title">{{ event.name }}</h4>
@@ -19,6 +21,7 @@
   </div>
 </div>
 
+<!-- Modal -->
 <template #content let-c="close" let-d="dismiss">
   <div class="modal-header">
     <h4 *ngIf=" !edit " class="modal-title">Add Event</h4>
@@ -38,12 +41,11 @@
         <option value="Streching Session">Streching Session</option>
       </select>
     </div>
-
+    <!-- Modal Form -->
     <div class="form-group">
       <label for="Textarea">Brief description</label>
       <textarea [(ngModel)]="edited_event.description" class="form-control" id="Textarea" rows="4"></textarea>
     </div>
-
     <div class="form-group">
       <label for="eventowner">Event Host </label>
       <input [(ngModel)]="edited_event.author" name="" type="text" class="form-control" id="eventowner" aria-describedby="nameHelp" placeholder="Your name fine sir/madame?">
@@ -63,7 +65,7 @@
   </div>
   <div class="modal-footer">
     <button type="button" class="btn btn-secondary" (click)="c('Close click')">Close</button>
-    <button *ngIf=" edit " type="button" class="btn btn-warning" (click)="editEvent( edited_event); c('Close click')">Edit</button>
+    <button *ngIf=" edit " type="button" class="btn btn-warning"  (click)="editEvent( edited_event); c('Close click')">Edit</button>
     <button *ngIf=" !edit " type="button" class="btn btn-success" (click)="addEvent( edited_event); c('Close click')">Create</button>
   </div>
 </template>

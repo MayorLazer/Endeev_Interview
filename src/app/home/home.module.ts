@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { HomeRouting } from './home.rounting';
@@ -15,6 +15,9 @@ import { NavbarModule} from '../navbar/navbar.module';
 import { HumansService } from '../services/humans/humans.service';
 import { EventsService } from '../services/events/events.service';
 
+// My Piperino
+import { SearchFilterPipe } from './list-events/list-events.component';
+
 
 @NgModule({
   imports: [
@@ -23,17 +26,18 @@ import { EventsService } from '../services/events/events.service';
     RouterModule.forChild( HomeRouting ),
     NavbarModule,
     FormsModule,
-    NgbModule.forRoot()
+    NgbModule.forRoot(),
   ],
   declarations: [
     ListEventsComponent,
     CalendarComponent,
-    HomeComponent
+    HomeComponent,
+    SearchFilterPipe
   ],
   // Add Export Class Name of Each Service So its instance GLOBALLY SINGLETON
   providers: [
     HumansService,
-    EventsService
+    EventsService,
   ]
 })
 export class HomeModule { }

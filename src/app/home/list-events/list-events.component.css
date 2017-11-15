@@ -11,3 +11,8 @@ ul{
 .add {
   width: 100%;
 }
+
+.card-group {
+  padding-top: 0px;
+  margin: auto 0px;
+}

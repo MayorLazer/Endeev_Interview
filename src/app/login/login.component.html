@@ -1,3 +1,4 @@
+<!-- Login -->
 <div class="modal-dialog">
   <div class="modal-content">
     <div class="modal-header">
@@ -14,6 +15,12 @@
       <button type="button" class="btn btn-primary btn-block margen" value="Login" (click)="log(email, pswrd)">Log in</button>
       <a [routerLink]="['/home']"><button type="button" class="btn btn-success btn-large btn-block"  value="Hacker">Hackerman!</button></a>
       <span class="pull-left btn btn-default"><a href="#">Register</a> <a href="#" btn btn-default> Forgot Password</a></span>
+
+      <!-- Alert Error -->
+      <div *ngIf="login_flag" class="alert alert-danger" role="alert">
+        <strong> Failed </strong> Username or Password Incorrect
+      </div>
+
     </div>
   </div>
 </div>

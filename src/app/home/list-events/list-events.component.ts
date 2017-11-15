@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 // Standarts Input for Service of Events
 import { Evento } from '../../models/event.model';
 import { EventsService } from '../../services/events/events.service';
 
-import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-list-events',
@@ -17,6 +17,9 @@ export class ListEventsComponent implements OnInit {
   edited_event: Evento = new Evento;
   edit: boolean = true;
   closeResult: string;
+  @Input() search: string = '';
+  @Output('refreshSearch') refreshSearch: EventEmitter<any> = new EventEmitter<any>();
+
 
   constructor( private listeventserviece: EventsService, private modalService: NgbModal) {
     // This line is to ensure that event get its values
@@ -33,17 +36,23 @@ export class ListEventsComponent implements OnInit {
   removeEvent( remove_event: Evento) {
     console.log('event to remove', remove_event);
     this.listeventserviece.removeEvento( remove_event );
+    this.search = '';
+    this.refreshSearch.emit(this.search);
   }
 
   editEvent ( edited_event: Evento ) {
     console.log('evento edit', edited_event);
     this.listeventserviece.editEvento ( edited_event );
+    this.search = '';
+    this.refreshSearch.emit(this.search);
 
   }
   addEvent( edited_event: Evento ){
     console.log('evento add', edited_event);
     this.listeventserviece.addEvento ( edited_event );
     console.log(this.events);
+    this.search = '';
+    this.refreshSearch.emit(this.search);
   }
 
   open(content, event: Evento) {
@@ -72,6 +81,26 @@ export class ListEventsComponent implements OnInit {
       return  `with: ${reason}`;
     }
   }
+}
 
 
+import { Injectable, Pipe, PipeTransform } from '@angular/core';
+
+@Pipe({
+  name: 'searchfilter'
+})
+
+@Injectable()
+export class SearchFilterPipe implements PipeTransform {
+  transform(items: any[], field: string, value: string): any[] {
+    if(value===''){
+      /* En esta condicion se aplican el borrar/editar/agregar, si esto no se cumple no funcan los metodos */
+      return items;
+    }
+    console.log('items', items);
+    console.log('field', field);
+    console.log('value', value);
+    if (!items) return [];
+    return items.filter(it => it[field].toLowerCase().includes(value.toLocaleLowerCase()));
+  }
 }

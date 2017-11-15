@@ -89,7 +89,7 @@ export class EventsService {
      }
   }
   addEvento ( add_event: Evento ): number {
-    if ( this.events.indexOf(add_event) == -1 ) {
+    if ( this.events.indexOf(add_event) === -1 ) {
       add_event.id = this.events.length + 1;
       return this.events.push(add_event);
     }
