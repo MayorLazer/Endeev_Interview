@@ -12,7 +12,7 @@
       <h4 class="card-title">{{ event.name }}</h4>
       <p class="card-text"> {{ event.date_begin | date:'longDate' }} </p>
       <p> >  {{ event.description }}  </p>
-      <p> -{{ event.author }} </p>
+      <p> -  {{ event.author }} </p>
       <div class="container">
         <label class="btn btn-danger" (click)="removeEvent(event)" > Remove  </label>
         <label class="btn btn-warning" (click)="open(content, event)" > Edit  </label>
@@ -24,12 +24,13 @@
 <!-- Modal -->
 <template #content let-c="close" let-d="dismiss">
   <div class="modal-header">
-    <h4 *ngIf=" !edit " class="modal-title">Add Event</h4>
-    <h4 *ngIf=" edit "class="modal-title">Edit Event</h4>
+    <h4 *ngIf=" !edit" class="modal-title"> Add Event </h4>
+    <h4 *ngIf=" edit " class="modal-title"> Edit Event </h4>
     <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
+  <!-- Modal Form -->
   <div class="modal-body">
     <div class="form-group">
       <label for="nameEvent">Pick your event:</label>
@@ -41,7 +42,6 @@
         <option value="Streching Session">Streching Session</option>
       </select>
     </div>
-    <!-- Modal Form -->
     <div class="form-group">
       <label for="Textarea">Brief description</label>
       <textarea [(ngModel)]="edited_event.description" class="form-control" id="Textarea" rows="4"></textarea>
@@ -65,7 +65,7 @@
   </div>
   <div class="modal-footer">
     <button type="button" class="btn btn-secondary" (click)="c('Close click')">Close</button>
-    <button *ngIf=" edit " type="button" class="btn btn-warning"  (click)="editEvent( edited_event); c('Close click')">Edit</button>
-    <button *ngIf=" !edit " type="button" class="btn btn-success" (click)="addEvent( edited_event); c('Close click')">Create</button>
+    <button *ngIf=" edit " type="button" class="btn btn-warning" (click)="editEvent( edited_event); c('Close click')">Edit</button>
+    <button *ngIf=" !edit" type="button" class="btn btn-success" (click)="addEvent( edited_event); c('Close click')">Create</button>
   </div>
 </template>

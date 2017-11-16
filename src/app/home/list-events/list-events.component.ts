@@ -83,7 +83,6 @@ export class ListEventsComponent implements OnInit {
   }
 }
 
-
 import { Injectable, Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({

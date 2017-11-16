@@ -14,8 +14,8 @@ export class EventsService {
           id: 0,
           name: 'Green Friday',
           author: 'Mati',
-          date_begin: new Date(2015, 12, 10, 4, 10, 0, 0),
-          date_end: new Date(2015, 12, 10, 5, 10,0,0),
+          date_begin: new Date(2015, 12, 10, 4, 10),
+          date_end: new Date(2015, 12, 10, 5, 10),
           description: 'El green friday ;)'
         },
         {
@@ -89,9 +89,7 @@ export class EventsService {
      }
   }
   addEvento ( add_event: Evento ): number {
-    if ( this.events.indexOf(add_event) === -1 ) {
       add_event.id = this.events.length + 1;
       return this.events.push(add_event);
-    }
   }
 }
