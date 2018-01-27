@@ -7,9 +7,16 @@ import { Component, OnInit} from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
+  searchHome: string = '';
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  processEvent($event){
+    console.log('evento recibido', $event);
+    this.searchHome = $event;
   }
 
 }

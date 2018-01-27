@@ -12,9 +12,9 @@ export class HumansService {
       this.humans = [
         {
           id: 0,
-          name: 'Doge',
-          last_name: 'Doggo',
-          email: 'getmailed@gad.com',
+          name: 'Diego',
+          last_name: 'Digegolini',
+          email: 'diego@endeev.com',
           pswrd: 'mUcH5eCur1tY'
         },
         {
@@ -37,6 +37,13 @@ export class HumansService {
           last_name: 'a',
           email: 'a',
           pswrd: 'a'
+        },
+        {
+          id: 4,
+          name: 'a',
+          last_name: 'a',
+          email: 'ah',
+          pswrd: 'ah'
         }
     ];
   }
@@ -78,6 +85,7 @@ export class HumansService {
       if ( user.email === email && user.pswrd === pswrd) {
         return true;
       }
+
     } return false;
   }
 }

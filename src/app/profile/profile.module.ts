@@ -3,10 +3,6 @@ import { CommonModule } from '@angular/common';
 import { ProfileComponent } from './profile.component'
 import { RouterModule } from '@angular/router';
 
-// My Models
-import { Evento } from '../models/event.model';
-import { Human } from '../models/human.model';
-
 // My Services
 import { HumansService } from '../services/humans/humans.service';
 import { EventsService } from '../services/events/events.service';
@@ -19,11 +15,10 @@ import { ProfileRouting } from './profilerouting';
   imports: [
     CommonModule,
     RouterModule.forChild( ProfileRouting ),
-    NavbarModule
+    NavbarModule,
   ],
   declarations: [
     ProfileComponent,
-
   ],
   providers: [
     HumansService,

@@ -1,39 +1,71 @@
-<!--
-<ul>
-  <li *ngFor="let event of events">
-    <accordion>
-      <accordion-group #group>
-        <div accordion-heading>
-          &lt;!&ndash; Oh boi dem pipes do work <3 &ndash;&gt;
-          <h5>{{event.name}} / When? -> {{event.date_begin | date:'longDate'}}</h5>
-          <i class="pull-right float-xs-right glyphicon"
-                    [ngClass]="{'glyphicon-chevron-down': group?.isOpen, 'glyphicon-chevron-right': !group?.isOpen}">
-          </i>
-        </div>
-        <div>
-            Hour -> {{event.date_begin | date:'shortTime'}}
-            Description -> {{event.description}}
-        </div>
-        <br/>
-        <div class="btn-group">
-          <label class="btn btn-primary">Editar</label>
-          <label class="btn btn-danger" (click)="removeEvent(event)">Eliminar</label>
-        </div>
-      </accordion-group>
-    </accordion>
-  </li>
-</ul>
--->
+<!-- Botonera -->
+<div class="main-content">
+  <button class="add btn btn-success" type="submit" (click)="open(content, null)"> Add Event </button>
+  <button class="add btn btn-info" type="submit" (click)="orderList()"> Sort Events </button>
+</div>
 
+<!-- Eventos -->
 <div class="row card-group main-content">
-  <div *ngFor="let event of events" class="card col-lg-4 col-md-6 col-xs-12 shrink">
+  <div *ngFor="let event of events | searchfilter: 'name' : search " class="card col-3 shrink">
     <img class="card-img-top" src="http://via.placeholder.com/350x150" alt="Card image cap">
     <div class="card-block">
       <h4 class="card-title">{{ event.name }}</h4>
       <p class="card-text"> {{ event.date_begin | date:'longDate' }} </p>
       <p> >  {{ event.description }}  </p>
-      <p> -{{ event.author }} </p>
-      <label class="btn btn-danger" (click)="removeEvent(event)" > Eliminar  </label>
+      <p> -  {{ event.author }} </p>
+      <div class="container">
+        <label class="btn btn-danger" (click)="removeEvent(event)" > Remove  </label>
+        <label class="btn btn-warning" (click)="open(content, event)" > Edit  </label>
+      </div>
     </div>
   </div>
 </div>
+
+<!-- Modal -->
+<template #content let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 *ngIf=" !edit" class="modal-title"> Add Event </h4>
+    <h4 *ngIf=" edit " class="modal-title"> Edit Event </h4>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <!-- Modal Form -->
+  <div class="modal-body">
+    <div class="form-group">
+      <label for="nameEvent">Pick your event:</label>
+      <select [(ngModel)]="edited_event.name" class="form-control" id="nameEvent">
+        <option value="Meeting Room">Metting Room</option>
+        <option value="Dog Day">Dog Day</option>
+        <option value="Green Friday">Green Friday</option>
+        <option value="Daily">Daily</option>
+        <option value="Streching Session">Streching Session</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="Textarea">Brief description</label>
+      <textarea [(ngModel)]="edited_event.description" class="form-control" id="Textarea" rows="4"></textarea>
+    </div>
+    <div class="form-group">
+      <label for="eventowner">Event Host </label>
+      <input [(ngModel)]="edited_event.author" name="" type="text" class="form-control" id="eventowner" aria-describedby="nameHelp" placeholder="Your name fine sir/madame?">
+    </div>
+    <div class="form-group row container">
+      <label for="date_begin" class="col-2 col-form-label">Start</label>
+      <div class="col-10">
+        <input [(ngModel)]="edited_event.date_begin" class="form-control" type="datetime-local" value="" id="date_begin">
+      </div>
+    </div>
+    <div class="form-group row container">
+      <label for="date_end" class="col-2 col-form-label">End </label>
+      <div class="col-10">
+        <input [(ngModel)]="edited_event.date_end " class="form-control" type="datetime-local" value="" id="date_end">
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" (click)="c('Close click')">Close</button>
+    <button *ngIf=" edit " type="button" class="btn btn-warning" (click)="editEvent( edited_event); c('Close click')">Edit</button>
+    <button *ngIf=" !edit" type="button" class="btn btn-success" (click)="addEvent( edited_event); c('Close click')">Create</button>
+  </div>
+</template>
